@@ -1,0 +1,55 @@
+@use "color";
+@use "helpers";
+
+footer {
+  background-color: color.$dark-blue;
+  color: color.$white;
+  padding: 4rem 0 3rem;
+
+  .container {
+    @include helpers.flex(center, center, column, 4rem);
+  }
+
+  .navbar-list {
+    @include helpers.flex(center, center, column, 2rem);
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    a {
+      transition: color 0.3s;
+
+      &:hover {
+        color: color.$soft-red;
+      }
+    }
+  }
+
+  .social-icon {
+    @include helpers.flex($gap: 3rem);
+
+    svg {
+      width: 3rem;
+      height: 3rem;
+      transition: color 0.3s;
+
+      &:hover {
+        color: color.$soft-red;
+      }
+    }
+  }
+
+  @media (min-width: 750px) {
+    .container {
+      flex-direction: row;
+    }
+
+    .navbar-list {
+      flex-direction: row;
+    }
+
+    .social-icon {
+      margin-left: auto;
+    }
+  }
+}

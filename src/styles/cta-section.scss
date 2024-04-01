@@ -1,0 +1,80 @@
+@use "helpers";
+@use "color";
+
+.cta {
+  @extend %padding-section;
+  background-color: color.$soft-blue;
+  text-align: center;
+  color: color.$white;
+
+  .container {
+    @include helpers.flex(center);
+  }
+
+  form {
+    @include helpers.flex(center, center, column, 2.5rem);
+    max-width: 38rem;
+
+    span {
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .input-container {
+      @include helpers.flex(center, center, column, 1.5rem);
+      width: 100%;
+
+      input {
+        border: none;
+        flex: 1;
+        border-radius: 4px;
+        padding: 1.3rem 1.5rem;
+        box-shadow: 0 0 2px color.$soft-blue;
+        width: 100%;
+        font-size: 1.4rem;
+        outline: none;
+        border: 2px solid transparent;
+        color: color.$dark-blue;
+
+        &::placeholder {
+          color: color.$grayish-blue;
+        }
+
+        &:focus {
+          border-color: color.$soft-red;
+        }
+      }
+
+      .button {
+        @include helpers.btnColor(color.$soft-red, color.$white);
+        width: 100%;
+        padding: 1.3rem 2rem;
+        font-size: 1.4rem;
+        transition: all 0.3s;
+        font-weight: bold;
+        border: 2px solid color.$soft-red;
+
+        &:hover {
+          background-color: color.$white;
+          color: color.$soft-red;
+        }
+      }
+
+      @media (min-width: 750px) {
+        & {
+          flex-direction: row;
+        }
+
+        input,
+        .button {
+          width: auto;
+        }
+      }
+    }
+  }
+}

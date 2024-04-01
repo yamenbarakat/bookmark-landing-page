@@ -1,0 +1,148 @@
+@use "helpers";
+@use "color";
+
+.main-header {
+  padding: 2.8rem 0;
+
+  > .container {
+    @include helpers.flex(space-between, center);
+  }
+
+  .logo {
+    &.change-color {
+      span {
+        background-color: color.$white;
+      }
+      svg {
+        color: color.$dark-blue;
+      }
+      div {
+        color: color.$white;
+      }
+    }
+  }
+
+  .larg-device,
+  .larg-device .button {
+    display: none;
+    text-transform: uppercase;
+  }
+
+  .larg-device .button {
+    background-color: color.$soft-red;
+    color: color.$white;
+    font-weight: bold;
+    border: 2px solid color.$soft-red;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: color.$white;
+      color: color.$soft-red;
+    }
+  }
+
+  .navbar {
+    svg {
+      font-size: 2.4rem;
+      cursor: pointer;
+      z-index: 4;
+      position: relative;
+    }
+
+    &.change-color svg {
+      color: color.$white;
+    }
+  }
+
+  @media (min-width: 750px) {
+    .navbar {
+      font-size: 1.4rem;
+
+      svg {
+        display: none;
+      }
+
+      .larg-device {
+        @include helpers.flex($alignment: center);
+        gap: 4rem;
+      }
+
+      .button {
+        display: block;
+        letter-spacing: 1.5px;
+      }
+    }
+
+    .navbar-list {
+      @include helpers.flex($gap: 4rem);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+
+      a {
+        transition: color 0.3s;
+      }
+
+      a:hover {
+        color: color.$soft-red;
+      }
+    }
+  }
+}
+
+//  drop-menu
+.drop-menu {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  background-color: hsl(228deg 29% 21% / 90%);
+  color: color.$white;
+
+  .container {
+    width: 100%;
+    height: 100%;
+    padding: 0 3rem;
+    margin: 0 auto;
+    max-width: 60rem;
+    display: grid;
+  }
+
+  ul {
+    margin-top: 10.6rem;
+  }
+
+  li,
+  .button {
+    padding: 2.4rem 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+  }
+
+  li {
+    border-top: 1px solid color.$grayish-blue;
+  }
+
+  .button {
+    background-color: transparent;
+    width: 100%;
+    padding: 1rem 0;
+    border-radius: 4px;
+    text-transform: uppercase;
+    border: 2px solid color.$white;
+    color: color.$white;
+  }
+
+  .social-icon {
+    @include helpers.flex(center);
+    align-self: end;
+    margin-bottom: 4rem;
+    gap: 3rem;
+    svg {
+      font-size: 3.6rem;
+    }
+  }
+}

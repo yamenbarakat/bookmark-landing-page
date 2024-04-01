@@ -1,0 +1,106 @@
+@use "helpers";
+@use "color";
+
+.landing {
+  @extend %padding-section;
+  overflow: hidden;
+
+  .container {
+    @include helpers.flex($direction: column);
+    gap: 6.6rem;
+
+    @media (min-width: 750px) {
+      & {
+        @include helpers.flex(center, center, row, 2rem);
+      }
+    }
+  }
+
+  // landing-img
+  .landing-img {
+    height: fit-content;
+    margin: 0 auto;
+    max-width: 50rem;
+    position: relative;
+
+    &::after {
+      @include helpers.after(100vw, left, 5rem);
+    }
+
+    img {
+      width: 100%;
+    }
+
+    @media (min-width: 750px) {
+      & {
+        order: 2;
+        flex: 1;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      & {
+        left: 6%;
+
+        &::after {
+          @include helpers.after(100vw, left, 7rem);
+          left: 30%;
+        }
+      }
+    }
+  }
+
+  // info
+  .info {
+    margin: 0 auto;
+
+    h1 {
+      font-size: 3.2rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .paragraph {
+      margin-bottom: 2.5rem;
+    }
+
+    .landing-buttons {
+      @include helpers.flex(center);
+      gap: 1.3rem;
+
+      & .button:first-child {
+        @include helpers.btnColor(color.$soft-blue, color.$white);
+      }
+
+      & .button:last-child {
+        @include helpers.btnColor(hsl(228deg 13.08% 92.03%), #54586c);
+      }
+    }
+
+    @media (min-width: 750px) {
+      & {
+        flex: 1;
+      }
+
+      .text-section {
+        text-align: left;
+        margin: 0;
+      }
+
+      .landing-buttons {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      h1 {
+        font-size: 4rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .landing-buttons {
+        margin-top: 4rem;
+      }
+    }
+  }
+}
