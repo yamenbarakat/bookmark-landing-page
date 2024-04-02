@@ -68,6 +68,10 @@
       @include helpers.flex(center);
       gap: 1.3rem;
 
+      .button {
+        font-size: 1.3rem;
+      }
+
       & .button:first-child {
         @include helpers.btnColor(color.$soft-blue, color.$white);
       }

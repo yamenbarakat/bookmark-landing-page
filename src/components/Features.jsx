@@ -46,12 +46,7 @@ function Carousel() {
             aria-selected={selectedTab === i}
             className={selectedTab === i ? "selected" : ""}
           >
-            <button onClick={() => setSelectedTab(i)}>
-              {item}
-              {selectedTab === i ? (
-                <motion.div className="underline" layoutId="underline" />
-              ) : null}
-            </button>
+            <button onClick={() => setSelectedTab(i)}>{item}</button>
           </li>
         ))}
       </ul>
@@ -65,7 +60,6 @@ function Carousel() {
             exit={{ y: -10, opacity: 0 }}
             transition={{ duration: 0.2 }}
             role="tabpanel"
-            aria-labelledby={`tab-${selectedTab}`}
             className="tabs-content"
           >
             <div className="image-tab">

@@ -8,7 +8,7 @@ function Landing() {
       <div className="container">
         <motion.div
           className="landing-img"
-          initial={{ opacity: 0, x: 400 }}
+          initial={{ opacity: 0, x: 200 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
         >
@@ -17,7 +17,7 @@ function Landing() {
 
         <motion.section
           className="info"
-          initial={{ opacity: 0, x: -400 }}
+          initial={{ opacity: 0, x: -200 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
         >

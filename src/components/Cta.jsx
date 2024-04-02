@@ -11,7 +11,7 @@ function Cta() {
       viewport={{ once: true, amount: 0.3 }}
     >
       <div className="container">
-        <form action="">
+        <form>
           <span>35,000+ already joined</span>
           <h2 className="sub-heading">Stay up-to-date with what we’re doing</h2>
           <div className="input-container">
